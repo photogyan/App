@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FaceSwap: Transform your photos and videos with our advanced faceswapping technology. Easily swap faces with friends and family for hilarious results.">
+    <meta name="keywords" content="faceswap, face swap, photo editing, video editing, AI faceswap, deepfake, funny faces, face transformation">
+    <meta name="author" content="Your Name or Your Company Name">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="FaceSwap - Transform Your Photos and Videos">
+    <meta property="og:description" content="Easily faceswap photos and videos with our advanced technology. Create hilarious transformations with just a few clicks.">
+    <meta property="og:image" content="URL_to_your_logo_or_an_image_representing_your_website">
+    <meta property="og:url" content="Your_website_URL">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FaceSwap - Transform Your Photos and Videos">
+    <meta name="twitter:description" content="Easily faceswap photos and videos with our advanced technology. Create hilarious transformations with just a few clicks.">
+    <meta name="twitter:image" content="URL_to_your_logo_or_an_image_representing_your_website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="path_to_your_favicon.png">
+
+    <title>FaceSwap - Transform Your Photos and Videos</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Include Cropper.js library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" integrity="sha512-Jj7V8OX4GFk8jC0QKRJMqCWspU5qfqUi0vVlFOMOvHE7WgUByXDlEkYOH9Dr1wnBkn9LbXPUn2iE5vU1HaRhFg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js" integrity="sha512-xiVA6i5kC7xL+8pB9OQnBca5M59sRseQM6XdLBY/5XgP5ZRbb8V1gsQ+bHzsUN1Rj2bvEAKDZLyd6siC7EBFnw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Other head elements go here -->
+
+
+    <!-- Stylesheets, JavaScript, and other head elements go here -->
+
+</head>
+<body>
+    <!-- Your website content goes here -->
+    <div class="container">
+        <section>
+            <h2>Upload and Crop Photos</h2>
+            <input type="file" id="photo1" accept="image/*" multiple>
+            <input type="file" id="photo2" accept="image/*" multiple>
+            <div id="preview1" class="crop-preview"></div>
+            <div id="preview2" class="crop-preview"></div>
+        </section>
+
+        <button id="startSwapping">Start Swapping</button>
+    </div>
+<!-- Include your other HTML content here -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize Cropper for each image
+        const cropper1 = new Cropper(document.getElementById('preview1'), {
+            aspectRatio: 1, // Set the aspect ratio as needed
+            viewMode: 1,
+        });
+
+        const cropper2 = new Cropper(document.getElementById('preview2'), {
+            aspectRatio: 1, // Set the aspect ratio as needed
+            viewMode: 1,
+        });
+
+        // Handle file input change
+        document.getElementById('photo1').addEventListener('change', function (event) {
+            const input = event.target;
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                cropper1.replace(reader.result);
+            };
+
+            if (input.files.length > 0) {
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+
+        document.getElementById('photo2').addEventListener('change', function (event) {
+            const input = event.target;
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                cropper2.replace(reader.result);
+            };
+
+            if (input.files.length > 0) {
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+
+        // Handle Start Swapping button click
+        document.getElementById('startSwapping').addEventListener('click', function () {
+            // Implement your faceswapping logic here
+            alert('Faceswapping logic will be implemented here!');
+        });
+    });
+</script>
+</body>
+</html>
